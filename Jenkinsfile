@@ -30,9 +30,9 @@ node{
    
 withCredentials([usernamePassword(credentialsId: 'staging', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 
-  echo "username is $USERNAME"
   staging.user= USERNAME
   staging.password=  PASSWORD
+
      stage('staging'){
 
      sshCommand remote: staging, command: 'hostname;'
@@ -52,7 +52,6 @@ withCredentials([usernamePassword(credentialsId: 'staging', usernameVariable: 'U
 
 withCredentials([usernamePassword(credentialsId: 'staging', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 
-  echo "username is $USERNAME"
   production.user= USERNAME
   production.password=  PASSWORD
      stage('production'){
