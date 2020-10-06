@@ -39,7 +39,7 @@ withCredentials([usernamePassword(credentialsId: 'staging', usernameVariable: 'U
      sshPut remote: staging, from: 'docker-compose.yml', into: '.'
      sshCommand remote: staging, command: 'docker-compose down; docker rmi -f bacemmehri1/test_technique:latest || True;  docker-compose up -d;'
 
-     sh 'bash smoke-test.sh'
+     sh 'bash tests/smoke-test.sh'
 
     }
 }
